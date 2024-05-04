@@ -4,22 +4,22 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 # Define functions for each section
-def display_resume():
-    st.title('Resume')
-    about_me_col, tech_stack_col = st.columns([1, 1])
+def display_cv():
+    st.markdown('## Quentin')
+    about_me_col, tech_stack_col = st.columns([1, 1.4])
     with about_me_col:
         about_me = st.expander(label=':eyes: About me', expanded=True)
         with about_me:
             st.markdown('''
                         - Research scientist turned data scientist in 2021
-                        - 3 years experience in the financial sector
-                        - 6 years hands-on Python
-                        - 10 years data analytics & Statistics
+                        - **3 years** experience in the financial sector
+                        - **6 years** hands-on Python
+                        - **10 years** data analytics & Statistics
                         ''')
     with tech_stack_col:
         tech_stack = st.expander(label=':wrench: Tech Stack', expanded=True)
         with tech_stack:
-            col1, col2, col3 = st.columns([1.5, 1.5, 1])
+            col1, col2, col3 = st.columns([1, 1, 1])
             with col1:
                 st.markdown('''
                             - Python
@@ -92,33 +92,43 @@ def display_resume():
         )
 
     with education:
-        st.write('University of Glasgow 4 lyf')
+        st.markdown('''
+        ##### PhD Electrophysiology - University of Glasgow, Glasgow, UK
+        :green[*(Sep 2015 - Aug 2019)*]\n
+
+        - Automated profitability reporting, reducing human error and hours of excel work.
+        - Data pipeline ingestion, wrangling, and cleaning.
+        - Implemented regression-based predictive model in loans behavior.
+        - Documentation and repository implementation for team codebase.''')
 
 def display_projects():
     st.title('Projects')
-    st.write('These are my projects')
+    st.divider()
+    st.markdown('''
+                ### Personal Finance Web App
+                - **Description:** [Web app](https://personal-finance-app.streamlit.app/) to plan financial outcomes
+                ''')
+
 
 def display_contact():
-    st.title('Contact')
+    st.title('Contact details')
     st.write('This is how you can contact me')
 
 
 # Mapping of section names to corresponding functions
 section_functions = {
-    'Resume': display_resume,
+    'CV': display_cv,
     'Projects': display_projects,
     'Contact': display_contact
 }
 
 # Sidebar setup
 with st.sidebar:
-
-    st.title('Quentin Lachaud')
+    st.image('images/white.png', width=230)
     st.divider()
-    col1, col2, col3 =  st.columns([.3, 2, .1])
-    with col2:
-        st.caption(':arrow_down: Navigate through the sections below :arrow_down:')
-    selection = st.radio(label='', options=(list(section_functions.keys())))
+    selection = st.radio(label='  ', options=(list(section_functions.keys())))
+
+
 
 # Display the selected section
 selected_function = section_functions.get(selection)
