@@ -7,22 +7,20 @@ st.set_page_config(layout="wide")
 def display_cv():
     st.markdown('# Quentin Lachaud')
     st.write('''Welcome to my online CV!
-             I made this because LinkedIn is a bit boring and I wanted to show off some skills and projects..''')
+             I made this because LinkedIn is a bit boring and I wanted to show off some skills and projects...''')
 
-    st.write('I am a Data Scientist with a specialisation in finance and biological sciences. A clear communicator with a passion for data and a positive attitude.')
     st.divider()
 
     about_me_col, tech_stack_col = st.columns([1, 1])
 
     with about_me_col:
+
         about_me = st.expander(label=':eyes: About me', expanded=True)
         with about_me:
             st.markdown('''
                         - **:green[3 years]** experience in the financial sector
                         - **:green[6 years]** hands-on Python
                         - **:green[10 years]** Data Analysis & Statistics
-
-                        In my spare time I code, run, ride my bike and hike (in no particular order...)
                         ''')
     with tech_stack_col:
         tech_stack = st.expander(label=':wrench: Tech Stack', expanded=True)
@@ -167,6 +165,7 @@ with st.sidebar:
     st.write(':email: quentin.lachaud@gmail.com')
     st.write(':telephone_receiver: :blue[(+44) 7513 471 478]')
     st.write('\n'*5)
+    st.divider()
 
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
