@@ -5,7 +5,7 @@ st.set_page_config(layout="wide")
 
 # Define functions for each section
 def display_cv():
-    st.markdown('# Quentin Lachaud')
+
     st.write('''Welcome to my online CV!
              I made this because LinkedIn is a bit boring and I wanted to show off some skills and projects...''')
 
@@ -107,31 +107,31 @@ def display_cv():
                         ##### :red[Ph.D. Electrophysiology] - University of Glasgow, UK
                         :blue[*(Sep 2015 - Aug 2019)*]\n
 
-                        - Automated profitability reporting, reducing human error and hours of excel work.
-                        - Data pipeline ingestion, wrangling, and cleaning.
-                        - Implemented regression-based predictive model in loans behavior.
-                        - Documentation and repository implementation for team codebase.''')
+                        - Python Programming for Biologists (2016) 
+                        - PERL programming for biologists (2015)
+                        - Achieved *100x* improvement on existing methodologies (Thesis focus)
+                        - Created cleaning and engineering pipelines for high-frequency time-series in Python
+                        - Wrote publication-grade data visualisation scripts
+                        - Extensive experience with statistical testing
+                        - Used experimentally-calibrated mathematical models to predict cellular behaviour (Print 2021)''')
             
             st.markdown('''
                         ##### :red[M.Sc. (Research) Transaltional Medicine] - University of Glasgow, UK
                         :blue[*(Sep 2014 - Aug 2015)*]\n
 
-                        - Automated profitability reporting, reducing human error and hours of excel work.
-                        - Data pipeline ingestion, wrangling, and cleaning.
-                        - Implemented regression-based predictive model in loans behavior.
-                        - Documentation and repository implementation for team codebase.''')
+                        - Hypothesis-driven work
+                        - Data analysis
+                        - Scientific presentations to large audiences''')
             
             st.markdown('''
                         ##### :red[B.Sc. Neuroscience] - University of Glasgow, UK
                         :blue[*(Sep 2009 - May 2013)*]\n
 
-                        - Automated profitability reporting, reducing human error and hours of excel work.
-                        - Data pipeline ingestion, wrangling, and cleaning.
-                        - Implemented regression-based predictive model in loans behavior.
-                        - Documentation and repository implementation for team codebase.''')
+                        - Image analysis (3D imaging) of mouse neurons
+                        - Image reconstruction using ImageJ''')
 
 def display_projects():
-    st.title('Projects')
+    st.write('## Projects')
     st.divider()
 
     project_col1, project_col2 = st.columns([1, 1])
@@ -157,24 +157,27 @@ def display_projects():
             st.divider()
             st.write(':grey[Calculate mortgage payments and overpayment effects]')
             st.image('images/mortgage_calculator_page.png', use_column_width=True)
-            
+    
+def display_test():
+    st.header('Testing')
 
 # Mapping of section names to corresponding functions
 section_functions = {
-    'CV': display_cv,
-    'Projects': display_projects,
-}
+                    'CV': display_cv,
+                    'Projects': display_projects
+                    }
+
 
 # Sidebar setup
 with st.sidebar:
+    col1, col2, col3 = st.columns([.3, 1, .1])
+
+    with col2:
     
-    st.image('images/white.png', width=230)
-    st.divider()
-    nav_expander = st.expander('Sections', expanded=True)
+        st.image('images/white.png', width=150)
+        st.write('### Quentin Lachaud')
 
-    with nav_expander:
-
-        selection = st.radio(label='  ', options=(list(section_functions.keys())))            
+    selection = st.radio(label='  ', options=(list(section_functions.keys())))            
 
     st.divider()
 
@@ -183,8 +186,6 @@ with st.sidebar:
     linkedin_logo_url = 'https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-1024.png'
     st.write(':email: quentin.lachaud@gmail.com')
     st.write(':telephone_receiver: :blue[(+44) 7513 471 478]')
-    st.write('\n'*5)
-    st.divider()
 
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
