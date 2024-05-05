@@ -133,12 +133,31 @@ def display_cv():
 def display_projects():
     st.title('Projects')
     st.divider()
-    st.markdown('''
-                ### Personal Finance Web App
-                - **Description:** [Web app](https://personal-finance-app.streamlit.app/) to extrapolate your personal finance data
-                - **Tech Stack:** :rainbow[Python], Streamlit, Plotly, Pandas, Numpy
-                ''')
 
+    project_col1, project_col2 = st.columns([1, 1])
+    with project_col1:
+        finance_app_expander = st.expander('Personal Finance Web App', expanded=True)
+        with finance_app_expander:
+         
+            st.markdown('''
+                        ### :money_with_wings: :blue[Personal Finance Web App]
+                        - **Description:** [Web app](https://personal-finance-app.streamlit.app/) to extrapolate your personal finance data
+                        - **Tech Stack:** :rainbow[Python], Streamlit, Plotly, Pandas, Numpy
+                        ''')
+            st.divider()
+            st.markdown('### :camera: Screenshots')
+
+            st.write(':grey[Insert your assets and liabilities, estimate a growth rate and project the future!]')
+            st.image('images/finance_app_net_worth_page.png', use_column_width=True)
+
+            st.divider()
+            st.write(':grey[Simulate 1000 investment/retirement outcomes based on your inputs]')
+            st.image('images/monte_carlo_simulation_page.png', use_column_width=True)
+
+            st.divider()
+            st.write(':grey[Calculate mortgage payments and overpayment effects]')
+            st.image('images/mortgage_calculator_page.png', use_column_width=True)
+            
 
 # Mapping of section names to corresponding functions
 section_functions = {
