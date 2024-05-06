@@ -182,7 +182,7 @@ st.markdown(
     """
     <style>
         section[data-testid="stSidebar"] {
-            width: 270px !important; # Set the width to your desired value
+            width: 285px !important; # Set the width to your desired value
         }
     </style>
     """,
