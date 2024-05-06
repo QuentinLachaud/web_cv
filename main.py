@@ -5,9 +5,11 @@ st.set_page_config(layout="wide")
 
 # Define functions for each section
 def display_cv():
+    
+    with st.popover('Welcome to my online CV!'):
+        st.write('''This is a Python-built streamlit app to showcase my CV and personal projects.  
+                 :grey[:arrow_left: Navigate to Projects in sidebar]''')
 
-    st.write(''' Welcome to my online CV!  
-            I made this because LinkedIn is a bit boring and I wanted to show off some skills and projects...''')
 
     st.divider()
 
@@ -204,7 +206,11 @@ with st.sidebar:
     with col2:
     
         st.image('images/white.png', width=150)
-        st.write('### Quentin Lachaud')
+        st.markdown('''### :blue[Quentin Lachaud]''')
+        st.markdown('''
+                    :grey[   ]*Data Scientist*:grey[   ]
+                    ''')
+        # st.write('#### *Data Scientist*')
 
     selection = st.radio(label='  ', options=(list(section_functions.keys())))            
 
