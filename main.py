@@ -6,8 +6,8 @@ st.set_page_config(layout="wide")
 # Define functions for each section
 def display_cv():
 
-    st.write('''Welcome to my online CV!
-             I made this because LinkedIn is a bit boring and I wanted to show off some skills and projects...''')
+    st.write(''' Welcome to my online CV!  
+            I made this because LinkedIn is a bit boring and I wanted to show off some skills and projects...''')
 
     st.divider()
 
@@ -18,9 +18,11 @@ def display_cv():
         about_me = st.expander(label=':eyes: About me', expanded=True)
         with about_me:
             st.markdown('''
-                        - **:green[3 years]** experience in the financial sector
-                        - **:green[6 years]** hands-on Python
-                        - **:green[10 years]** Data Analysis & Statistics
+                        - **:green[3 years]** experience in financial sector :moneybag:
+                        - **:green[6 years]** hands-on Python :computer:
+                        - **:green[10 years]** Data Analysis & Statistics :bar_chart:
+
+                        :grey[I have a passion for] ***data analysis*** :grey[and] ***machine learning*** :grey[, with a penchant for] ***statistics*** :grey[and] ***data visualisation***.
                         ''')
     with tech_stack_col:
         tech_stack = st.expander(label=':wrench: Tech Stack', expanded=True)
@@ -56,10 +58,10 @@ def display_cv():
 
     with job_col:
 
-        professional_experience = st.expander(label=':briefcase: Professional Experience', expanded=True)
+        professional_experience = st.expander(label=':briefcase: What I do', expanded=True)
         with professional_experience:
 
-            
+            st.markdown('### :green[Professional Experience]')
         
 
             st.markdown('''
@@ -101,8 +103,11 @@ def display_cv():
                         ''')
 
     with edu_col:
-        education = st.expander(label=':books: Education', expanded=True)
+        education = st.expander(label=':books: What I learned', expanded=True)
         with education:
+
+            st.markdown('### :green[Education]')
+
             st.markdown('''
                         ##### :red[Ph.D. Electrophysiology] - University of Glasgow, UK
                         :blue[*(Sep 2015 - Aug 2019)*]\n
@@ -131,46 +136,61 @@ def display_cv():
                         - Image reconstruction using ImageJ''')
 
 def display_projects():
-    st.write('## Projects')
+    st.write('## Projects :hammer_and_wrench:')
+    st.markdown('''Below is a list of personal projects I have worked on. (*Work in progress*) :building_construction:
+                ''')
     st.divider()
 
-    project_col1, project_col2 = st.columns([1, 1])
-    with project_col1:
-        finance_app_expander = st.expander('Personal Finance Web App', expanded=True)
-        with finance_app_expander:
-         
-            st.markdown('''
-                        ### :money_with_wings: :blue[Personal Finance Web App]
-                        - **Description:** [Web app](https://personal-finance-app.streamlit.app/) to extrapolate your personal finance data
-                        - **Tech Stack:** :rainbow[Python], Streamlit, Plotly, Pandas, Numpy
-                        ''')
-            st.divider()
-            st.markdown('### :camera: Screenshots')
+    # project_col1, project_col2 = st.columns([1, 1])
+    # with project_col1:
+    finance_app_expander = st.expander('Personal Finance Web App', expanded=True)
+    with finance_app_expander:
+        
+        st.markdown('''
+                    ### :money_with_wings: :blue[Personal Finance Web App]
+                    - Check it out to extrapolate your personal finance data!
+                    - **Tech Stack:** :rainbow[Python], Streamlit, Plotly, Pandas, Numpy
+                    - GitHub repo: [Finance App repository](https://github.com/QuentinLachaud/personal_finance_app)
+                    - App link: [Finance App](https://personal-finance-app.streamlit.app/)
+                    ''')
+        st.divider()
+        st.markdown('### :camera: Screenshots')
 
-            st.write(':grey[Insert your assets and liabilities, estimate a growth rate and project the future!]')
-            st.image('images/finance_app_net_worth_page.png', use_column_width=True)
+        st.write(':grey[Insert your assets and liabilities, estimate a growth rate and project the future!]')
+        st.image('images/finance_app_net_worth_page.png', use_column_width=True)
 
-            st.divider()
-            st.write(':grey[Simulate 1000 investment/retirement outcomes based on your inputs]')
-            st.image('images/monte_carlo_simulation_page.png', use_column_width=True)
+        st.divider()
+        st.write(':grey[Simulate 1000 investment/retirement outcomes based on your inputs]')
+        st.image('images/monte_carlo_simulation_page.png', use_column_width=True)
 
-            st.divider()
-            st.write(':grey[Calculate mortgage payments and overpayment effects]')
-            st.image('images/mortgage_calculator_page.png', use_column_width=True)
+        st.divider()
+        st.write(':grey[Calculate mortgage payments and overpayment effects]')
+        st.image('images/mortgage_calculator_page.png', use_column_width=True)
     
 def display_test():
     st.header('Testing')
 
 # Mapping of section names to corresponding functions
 section_functions = {
-                    'CV': display_cv,
-                    'Projects': display_projects
+                    'CV :page_with_curl:': display_cv,
+                    'Projects :hammer_and_wrench:': display_projects
                     }
 
 
-# Sidebar setup
+# Sidebar setup (CSS custom sidebar width)
+st.markdown(
+    """
+    <style>
+        section[data-testid="stSidebar"] {
+            width: 270px !important; # Set the width to your desired value
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+# Defining sidebar
 with st.sidebar:
-    col1, col2, col3 = st.columns([.3, 1, .1])
+    col1, col2, col3 = st.columns([.2, 1, .1])
 
     with col2:
     
@@ -180,8 +200,9 @@ with st.sidebar:
     selection = st.radio(label='  ', options=(list(section_functions.keys())))            
 
     st.divider()
-
-    st.write('### Contact')
+    col1, col2, col3 = st.columns([.8, 1, 1])
+    with col2:
+        st.write('### Contact')
     github_logo_url   = 'https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png'
     linkedin_logo_url = 'https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-1024.png'
     st.write(':email: quentin.lachaud@gmail.com')
