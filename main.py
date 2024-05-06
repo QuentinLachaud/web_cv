@@ -208,7 +208,7 @@ with st.sidebar:
         st.image('images/white.png', width=150)
         st.markdown('''### :blue[Quentin Lachaud]''')
         st.markdown('''
-                    :grey[   ]*Data Scientist*:grey[   ]
+                    :grey[__ ]*Data Scientist*:grey[ __]
                     ''')
         # st.write('#### *Data Scientist*')
 
