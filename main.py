@@ -36,7 +36,7 @@ def display_cv():
                             - SQL
                             - AWS
                             - SageMaker Studio
-                            - Git/GitLab/GitHub
+                            - Git/GitLab
                             ''')
             with col2:
                 st.markdown('''
@@ -210,8 +210,7 @@ with st.sidebar:
         st.markdown('''
                     :grey[__ ]*Data Scientist*:grey[ __]
                     ''')
-        # st.write('#### *Data Scientist*')
-
+    
     selection = st.radio(label='  ', options=(list(section_functions.keys())))            
 
     st.divider()
