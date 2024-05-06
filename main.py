@@ -155,16 +155,25 @@ def display_projects():
                     ''')
         st.divider()
         st.markdown('### :camera: Screenshots')
+        col1, col2, col3 = st.columns([.3, 1, .2])
 
-        st.write(':grey[Insert your assets and liabilities, estimate a growth rate and project the future!]')
+        with col2:
+            st.write(':red[Insert your assets and liabilities, estimate a growth rate and project the future!]')
         st.image('images/finance_app_net_worth_page.png', use_column_width=True)
 
         st.divider()
-        st.write(':grey[Simulate 1000 investment/retirement outcomes based on your inputs]')
+        col1, col2, col3 = st.columns([.4, 1, .4])
+
+        with col2:
+            st.write(':red[Simulate 1000 investment/retirement outcomes based on your inputs]')
         st.image('images/monte_carlo_simulation_page.png', use_column_width=True)
 
         st.divider()
-        st.write(':grey[Calculate mortgage payments and overpayment effects]')
+        col1, col2, col3 = st.columns([.6, 1, .4])
+
+        with col2:
+            st.write(''':red[*Calculate mortgage payments and overpayment effects*]''')
+        st.divider()
         st.image('images/mortgage_calculator_page.png', use_column_width=True)
     
 def display_test():
