@@ -211,7 +211,23 @@ with st.sidebar:
                     :grey[__ ]*Data Scientist*:grey[ __]
                     ''')
     
-    selection = st.radio(label='  ', options=(list(section_functions.keys())))            
+    selection = st.radio(label='  ', options=(list(section_functions.keys())))   
+
+    pdf_file_path = 'pdf/Quentin_Lachaud_CV.pdf'
+
+    # Function to generate download link
+    def download_file():
+        with open(pdf_file_path, 'rb') as f:
+            file_content = f.read()
+        return file_content
+
+    # Create a download button for the PDF file
+    
+    file_content = download_file()
+    st.download_button(label='Download PDF CV',
+                    data=file_content,
+                    file_name='Quentin_Lachaud_CV.pdf',
+                    mime='byte')
 
     st.divider()
     col1, col2, col3 = st.columns([.8, 1, 1])
